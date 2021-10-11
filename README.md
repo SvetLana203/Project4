@@ -5,7 +5,7 @@
 ## Date: 10/11/2021
 
 ### By: Svetlana Shirapova
-[Facebook](https://www.facebook.com/) | [GitHub]() | [LinkedIn](https://www.linkedin.com/in/svetlana-shirapova-aa9068219/)
+[Facebook](https://www.facebook.com/) | [GitHub](https://github.com/SvetLana203/ZeroWaste) | [LinkedIn](https://www.linkedin.com/in/svetlana-shirapova-aa9068219/)
 
 </div>
 
