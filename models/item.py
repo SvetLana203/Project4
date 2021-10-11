@@ -1,6 +1,4 @@
 from datetime import datetime
-
-from sqlalchemy.orm.strategy_options import joinedload_all
 from models.db import db
 from sqlalchemy.orm import joinedload
 
