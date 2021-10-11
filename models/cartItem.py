@@ -8,8 +8,8 @@ class CartItem(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   cart_id = db.Column(db.Integer, db.ForeignKey('carts.id'))
   item_id = db.Column(db.Integer, db.ForeignKey('items.id'))
-  cart = db.relationship("Cart")
-  item = db.relationship("Item")
+  cart = db.relationship("Cart", backref=db.backref('carts', lazy=True))
+  item = db.relationship("Item", backref=db.backref('items', lazy=True))
 
   def __init__(self, cart_id, item_id):
     self.cart_id = cart_id
