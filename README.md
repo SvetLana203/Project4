@@ -17,8 +17,8 @@
 Give your stuff the second life. Sell or donate it. Do not waste it.
 
 ## Getting Started
-![CHD](images/CHD.png)
-![ERD](images/ERD.png)
+![CHD](images/CHD2.png)
+![ERD](images/ERD2.png)
 A Trello board was used to keep track of development progress and can be viewed [here](https://trello.com/b/eEhnAq85/zerowaste)
 
 
