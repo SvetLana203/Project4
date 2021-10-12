@@ -32,6 +32,11 @@ class Item(db.Model):
       "updated_at": str(self.updated_at)
     }
 
+  def create(self):
+    db.session.add(self)
+    db.session.commit()
+    return self
+
   @classmethod
   def find_all(cls):
     query = Item.query.options(joinedload("user")).all()

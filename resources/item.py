@@ -36,4 +36,4 @@ class ItemInfo(Resource):
         return {"msg": "Not found"}, 404
       db.session.delete(item)
       db.session.commit()
-      return {"msg": "Employee Deleted", "payload": item_id}
+      return {"msg": "Item Deleted", "payload": item_id}

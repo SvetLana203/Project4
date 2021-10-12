@@ -21,4 +21,5 @@ class CartItems(Resource):
 class CartItemInfo(Resource):
   def get(self, cart_id):
     cartItems = CartItem.query.filter_by(cart_id=cart_id)
-    return cartItems
+    cart_id = [c.json() for c in cartItems]
+    return {**cartItems.json(), "cart_id": cart_id}

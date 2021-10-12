@@ -9,7 +9,7 @@ class CartItem(db.Model):
   cart_id = db.Column(db.Integer, db.ForeignKey('carts.id'))
   item_id = db.Column(db.Integer, db.ForeignKey('items.id'))
   cart = db.relationship("Cart", backref=db.backref('carts', lazy=True))
-  item = db.relationship("Item", backref=db.backref('items', lazy=True))
+  item = db.relationship("Item", backref=db.backref('cart_items', lazy=True))
 
   def __init__(self, cart_id, item_id):
     self.cart_id = cart_id
@@ -21,6 +21,10 @@ class CartItem(db.Model):
       "cart_id": self.cart_id,
       "item_id": self.item_id
     }
+  def create(self):
+    db.session.add(self)
+    db.session.commit()
+    return self
 
   @classmethod
   def find_all(cls):
