@@ -13,6 +13,7 @@ class Cart(db.Model):
     ), nullable=False, onupdate=datetime.now())
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
   
+  user = db.relationship("User", backref=db.backref('cart_users', lazy=True))
   def __init__(self, user_id):
     self.user_id = user_id
 
@@ -30,6 +31,14 @@ class Cart(db.Model):
 
   @classmethod
   def find_by_id(cls, user_id):
-    cart = Cart.query.filter_by(id=user_id)
+    cart = Cart.query.filter_by(user_id=user_id)
     return cart
   
+  @classmethod
+  def find_all(cls):
+    query = Cart.query.options(joinedload(
+            'user')).all()
+    response = []
+    for cart in query:
+          response.append({**cart.json(), "user": cart.user.json()})
+    return response

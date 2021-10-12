@@ -19,4 +19,9 @@ class Carts(Resource):
     cart.create()
     return cart.json(), 201
 
+class CartInfo(Resource):
+  def get(self, user_id):
+    cart = Cart.query.options(joinedload("user")).filter_by(user_id=user_id).first()
+    return {**cart.json(), "cart": cart.user.json()}
+
 

@@ -23,6 +23,7 @@ api.add_resource(item.Items, "/api/items")
 api.add_resource(item.ItemInfo, "/api/items/<int:item_id>")
 
 api.add_resource(cart.Carts, "/api/carts")
+api.add_resource(cart.CartInfo, "/api/carts/<int:user_id>")
 api.add_resource(cartItem.CartItems, "/api/cartitems")
 api.add_resource(cartItem.CartItemInfo, "/api/cartitems/<int:cart_id>")
 
