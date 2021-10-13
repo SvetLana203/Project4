@@ -1,12 +1,20 @@
 <template>
   <div class="new-item">
     <h2>Post your product</h2>
-    <img :src="image"/>
+    <form @submit="createItem" >
+    <input
+      type="file"
+      placeholder="product image"
+      accept="image/*"
+      @input="handleFormChange"
+      />
+    <img :src="image" alt=""/>
     <div class="input_product">
-    <input v-model="name" name="name" placeholder="product" @input="handleFormChange">
+    <textarea v-model="name" name="name" placeholder="product" @input="handleFormChange"/>
     </div>
     <textarea v-model="description" name="description" placeholder="description" @input="handleFormChange"/>
-    <button class="submit" @click="createItem">Submit</button>
+    <button>Submit</button>
+    </form>
   </div>
 </template>
 
@@ -19,14 +27,24 @@ export default {
     image: "",
     description: "",
   }),
+
+  
   methods: {
+    handleFormChange(e) {
+      this[e.target.name] = e.target.value
+      // this[e.target.description] = e.target.value
+    },
+
     async createItem(e){
       e.preventDefault()
+      this.name = ""
+      this.image = ""
+      this.description = ""
       const res = {
         name: this.name,
         image: this.image,
         description: this.description,
-        user_id: this.user_id
+        user_id: 2
       }
       await PostNewItem(res)
       // const res = await PostNewItem({
@@ -35,10 +53,9 @@ export default {
       //   description: this.description
       // })
       // res.
-    },
-    handleFormChange(e) {
-      this[e.target.name] = e.target.value
     }
+    
+    
   }
 }
 </script>

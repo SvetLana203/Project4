@@ -1,26 +1,30 @@
 <template>
-  <div class="item-content">
-    <div>
-      <img :src="itemDetails.image"/>
-      <h3>{{itemDetails.name}}</h3>
-      <h3>{{itemDetails.description}}</h3>
+  <div class="item-card">
+      <img :src="item.image" alt=""/>
+    <div class="content">
+      <h3>{{item.name}}</h3>
+      <h3>{{item.description}}</h3>
     </div>
+    <button class="delete" @click="deleteItem">Delete</button>
   </div>
 </template>
 
 <script>
+import { DeleteItem } from '../services/ItemServices';
 export default {
   name: "ItemCard",
-  // props: {
-  //   name: String,
-  //   image: String,
-  //   description: String
-  // },
+  props:["item"],
   data: () => ({
     itemDetails: {}
   }),
   mounted(){
-    this.postDetails = { ...this.post };
+    this.itemDetails = { ...this.item };
+  },
+  methods: {
+    async deleteItem(){
+      const res = await DeleteItem(this.itemDetails.id);
+      console.log("res :>> ", res)
+    }
   }
 }
 </script>

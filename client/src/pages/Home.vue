@@ -22,10 +22,9 @@ export default {
     PostItem
   },
   data: () => ({
-    items: []
+    items:[]
   }),
   mounted: function () {
-    this.$emit("checkRegistration");
     this.getItems();
   },
   methods: {
@@ -33,9 +32,9 @@ export default {
       const res = await GetItems();
       this.items = res.reverse();
     },
-    addItem(item) {
-      this.items.unshift(item);
-    },
+    // addItem(item) {
+    //   this.items.unshift(item);
+    // },
   },
 }
 </script>
