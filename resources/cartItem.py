@@ -20,6 +20,5 @@ class CartItems(Resource):
 
 class CartItemInfo(Resource):
   def get(self, cart_id):
-    cartItems = CartItem.query.filter_by(cart_id=cart_id)
-    cart_id = [c.json() for c in cartItems]
-    return {**cartItems.json(), "cart_id": cart_id}
+    cartItem = CartItem.query.options(joinedload("cart")).filter_by(cart_id=cart_id).first()
+    return {**cartItem.json(), "cartItem": cartItem.cart.json()}

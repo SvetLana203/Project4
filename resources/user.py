@@ -26,7 +26,7 @@ class UserInfo(Resource):
     return {"msg": "User Deleted", "payload": user_id}
 
   def get(self, user_id):
-    user = User.query.options(joinedload("items")).filter_by(id=user_id).firts()
+    user = User.query.options(joinedload("items")).filter_by(id=user_id).first()
     items = [i.json() for i in user.items]
     return {**user.json(), "items": items}
 

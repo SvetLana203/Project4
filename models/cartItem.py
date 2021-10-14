@@ -34,3 +34,8 @@ class CartItem(db.Model):
     for item in query:
           response.append({**item.json(), "cart": item.cart.json()})
     return response
+
+  @classmethod
+  def find_by_id(cls, cart_id):
+    cartItem = CartItem.query.filter_by(cart_id=cart_id)
+    return cartItem

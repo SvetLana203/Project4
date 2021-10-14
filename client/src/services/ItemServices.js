@@ -7,7 +7,7 @@ export const GetItems = async () => {
 
 export const PostNewItem = async data => {
   const res = await Client.post('/items', data)
-  return res
+  return res.data
 }
 
 export const UploadImage = async file => {
@@ -17,5 +17,10 @@ export const UploadImage = async file => {
 
 export const DeleteItem = async item_id => {
   const res = await Client.delete(`/items/${item_id}`)
+  return res
+}
+
+export const UpdateItem = async item_id => {
+  const res = await Client.put(`/items/${item_id}`)
   return res
 }

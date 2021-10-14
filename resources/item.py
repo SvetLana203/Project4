@@ -21,13 +21,14 @@ class Items(Resource):
 class ItemInfo(Resource):
   def get(self, item_id):
       item = Item.query.options(joinedload("user")).filter_by(id=item_id).first()
-      return {**item.json(), "item": item.user.json()}
+      return {**item.json(), "user": item.user.json()}
 
   def put(self, item_id):
       data = request.get_json()
       item = Item.find_by_id(item_id)
       for key in data:
-        setattr(item, key, data[key])  
+        setattr(item, key, data[key]) 
+        db.session.commit() 
       return item.json()
 
   def delete(self, item_id):
@@ -37,3 +38,9 @@ class ItemInfo(Resource):
       db.session.delete(item)
       db.session.commit()
       return {"msg": "Item Deleted", "payload": item_id}
+
+# class ItemImage(Resource):
+#   def post(self):
+#       file = request.files['file']
+#       bucket.Object(file.filename).put(Body=file)
+#       return "uploaded"  
