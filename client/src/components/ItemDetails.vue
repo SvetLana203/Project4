@@ -5,8 +5,8 @@
       <h3>{{item.name}}</h3>
       <h3>{{item.description}}</h3>
     </div>
-    <!-- <button class="delete" @click="deleteItem">Delete</button> -->
-    <button class="view-details" @click="viewDetails">View Details</button>
+    <button class="delete" @click="deleteItem">Delete</button>
+    <button class="edit" >Edit</button>
     <button class="add">Add to cart</button>
     
   </div>
@@ -14,7 +14,7 @@
 
 <script>
 
-// import { DeleteItem } from '../services/ItemServices';
+import { DeleteItem } from '../services/ItemServices';
 export default {
   name: "ItemCard",
   components: {},
@@ -26,14 +26,10 @@ export default {
     this.itemDetails = { ...this.item };
   },
   methods: {
-    // async deleteItem(){
-    //   const res = await DeleteItem(this.itemDetails.id);
-    //   console.log("res :>> ", res)
-    // },
-    viewDetails(id){
-      
-      this.$router.push(`/listings/${id}`)
-    }
+    async deleteItem(){
+      const res = await DeleteItem(this.itemDetails.id);
+      console.log("res :>> ", res)
+    },
   }
 }
 </script>

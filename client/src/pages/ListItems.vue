@@ -5,7 +5,7 @@
   </div>
   <div class="item-container">
   <div v-for="item in items" :key="item.id">
-    <ItemCard :item="item" />
+    <ItemCard :item="item" @click="selectItem"/>
   </div>
 </div>
   </div>
@@ -35,6 +35,8 @@ export default {
     },
     selectItem(item){
       this.selectedItem = item
+      // this.$route.push(`/listings/${id}`)
+    
     }
   },
 }

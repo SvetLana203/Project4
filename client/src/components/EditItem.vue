@@ -47,7 +47,7 @@ export default {
     console.log(newUpdatedItem)
     const res = await UpdateItem(newUpdatedItem)
       if (res.status === 200) {
-      this.$router.push("/listings")
+      this.$router.push(`/listings/${id}`)
   }
     }
 
