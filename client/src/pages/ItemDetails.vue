@@ -6,7 +6,7 @@
       <h3>{{itemDetails.description}}</h3>
     </div>
     <button class="delete" @click="deleteItem">Delete</button>
-    <router-link class="edit" to="/edit">Edit</router-link>
+    <router-link class="edit" :to="`/edit/${itemDetails.id}`">Edit</router-link>
     <button class="add">Add to cart</button>
   </div>
 </template>
@@ -39,6 +39,7 @@ export default {
       const res = await DeleteItem(this.$route.params.item_id);
       console.log("res >> ", res)
       this.itemDetails = ""
+      //this.$router.push(`/listings/${id}`)
     },
     // handleItemChange(e){
     //   this[e.target.name] = e.target.value

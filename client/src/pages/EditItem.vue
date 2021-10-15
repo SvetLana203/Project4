@@ -14,7 +14,7 @@
     </div>
     <textarea v-model="itemEdit.description" name="description"  placeholder="description" @input="handleItemChange"/>
     </div>
-    <button>Edit</button>
+    <button @click="updateItem">Edit</button>
   </form> 
       <div>
     </div>
@@ -22,10 +22,10 @@
 </template>
 
 <script>
-//import { UpdateItem } from '../services/ItemServices'
+import { UpdateItem } from '../services/ItemServices'
 export default {
   name: "EditItem",
-  props:["item"],
+  // props:["item"],
   data: ()=> ({
     itemEdit: {}
     // name:"",
@@ -33,29 +33,34 @@ export default {
     // description:"",
     // updatedItem:{}
   }),
-  mounted(){
-    this.$emit("getItems")
+  mounted() {
+  this.$emit("getItems")
+  this.newUpdatedItem
     },
   methods:{
     handleItemChange(e){
-      this[e.target.name] = e.target.value
+    this[e.target.name] = e.target.value
     },
       
         //this.$emit("getItems")
-    // async updateItem(e) {
-    //   e.preventDefault()
-    //   const newUpdatedItem = {
-    //     name: this.name,
-    //     image: this.image,
-    //     description: this.description
-  }
-  //   console.log(newUpdatedItem)
-  //   const res = await UpdateItem(newUpdatedItem)
-  //     if (res.status === 200) {
-  //     this.$router.push(`/listings/${id}`)
-  //     this.$emit("handleItemChange",itemDetails)
-  // }
-    //}}
+    async updateItem(e) {
+    e.preventDefault()
+    const newUpdatedItem = {
+      name: this.name,
+      image: this.image,
+      description: this.description,
+      user_id: 2
+      
+    }
+    console.log(newUpdatedItem)
+    const res = await UpdateItem(this.$route.params.item_id)
+    //this.itemEdit = res
+    console.log("here",res)
+    this.itemEdit = res
+    //this.$router.push(`/listings/${id}`)
+    // this.$emit("handleItemChange",itemDetails)
+  
+    }}
 
   }
 

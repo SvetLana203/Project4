@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
@@ -9,10 +10,17 @@ app = Flask(__name__)
 CORS(app)
 api = Api(app)
 
-
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://localhost:5432/zerowaste"
-app.config['SQLALCHEMY_ECHO'] = True
+DATABASE_URL = os.getenv('DATABASE_URL')
+if DATABASE_URL:
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL.replace(
+        "://", "ql://", 1)
+    app.config['SQLALCHEMY_ECHO'] = False
+    app.env = 'production'
+else:
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://localhost:5432/zerowaste"
+    app.config['SQLALCHEMY_ECHO'] = True
 
 
 db.init_app(app)
@@ -30,4 +38,4 @@ api.add_resource(cartItem.CartItems, "/api/cartitems")
 api.add_resource(cartItem.CartItemInfo, "/api/cartitems/<int:cart_id>")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
