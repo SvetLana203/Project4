@@ -38,7 +38,7 @@ export default {
     async deleteItem(){
       const res = await DeleteItem(this.$route.params.item_id);
       console.log("res >> ", res)
-      
+      this.itemDetails = ""
     },
   }
 }
