@@ -6,20 +6,20 @@
       <h3>{{itemDetails.description}}</h3>
     </div>
     <button class="delete" @click="deleteItem">Delete</button>
-    <button class="edit" >Edit</button>
+    <router-link class="edit" to="/edit">Edit</router-link>
     <button class="add">Add to cart</button>
-    
   </div>
 </template>
 
 <script>
-import {DeleteItem,GetItemById,} from "../services/ItemServices"
+import {DeleteItem,GetItemById} from "../services/ItemServices"
 export default {
   name: "ItemCard",
   components: {},
   // props:["item"],
   data: () => ({
-    itemDetails: {}
+    itemDetails: {},
+    
   }),
   mounted(){
     console.log(this.$route)
@@ -40,6 +40,20 @@ export default {
       console.log("res >> ", res)
       this.itemDetails = ""
     },
+    // handleItemChange(e){
+    //   this[e.target.name] = e.target.value
+    // },
+    // async updateItem(){
+    //   // e.preventDefault()
+    //   const newUpdatedItem = {
+    //     name: this.name,
+    //     image: this.image,
+    //     description: this.description
+    //   }
+    //   const res = await UpdateItem(newUpdatedItem)
+    //   console.log("updated", res)
+    //   this.$emit("handleItemChange")
+    // }
   }
 }
 </script>
