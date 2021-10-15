@@ -4,9 +4,9 @@ export const GetItems = async () => {
   const res = await Client.get('/items')
   return res.data
 }
-export const GetItemById = async item_id => {
-  const res = await Client.get(`/items/${item_id}`)
-  return res
+export const GetItemById = async id => {
+  const res = await Client.get(`/items/${id}`)
+  return res.data
 }
 export const PostNewItem = async data => {
   const res = await Client.post('/items', data)
@@ -18,12 +18,12 @@ export const UploadImage = async file => {
   return res
 }
 
-export const DeleteItem = async item_id => {
-  const res = await Client.delete(`/items/${item_id}`)
+export const DeleteItem = async id => {
+  const res = await Client.delete(`/items/${id}`)
   return res
 }
 
-export const UpdateItem = async item_id => {
-  const res = await Client.put(`/items/${item_id}`)
+export const UpdateItem = async id => {
+  const res = await Client.put(`/items/${id}`)
   return res
 }

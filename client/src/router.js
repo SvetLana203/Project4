@@ -3,7 +3,7 @@ import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Register from './pages/Register'
 import ListItems from './pages/ListItems'
-import ItemDetails from './components/ItemDetails'
+import ItemDetails from './pages/ItemDetails'
 
 const routes = [
   { path: '/', component: Home, name: 'Home' },

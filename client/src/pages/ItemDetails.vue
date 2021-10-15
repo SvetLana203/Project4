@@ -22,26 +22,24 @@ export default {
     itemDetails: {}
   }),
   mounted(){
+    console.log(this.$route)
     this.itemDetails = { ...this.item };
-    this.viewDetails()
+    this.viewDetails(this.$route.params.item_id)
+    
   },
   methods: {
     
     async viewDetails(id){
       const res = await GetItemById(id)
-      console.log (">> params" ,id)
+      console.log (">> params",id)
       console.log(res)
       this.itemDetails = res
     },
-    async deleteItem(id){
-      const res = await DeleteItem(id);
-      console.log("res :>> ", res)
-    },
-    // selectItem(id){
+    async deleteItem(){
+      const res = await DeleteItem(this.$route.params.item_id);
+      console.log("res >> ", res)
       
-    // this.$router.push(`${this.$route.params.item_id}`)
-    //   console.log("itemdetails ",id)
-    // },
+    },
   }
 }
 </script>
