@@ -1,6 +1,10 @@
-import Axios from 'axios'
+import axios from 'axios'
 
-export const BASE_URL = 'http://localhost:5000/api'
-const Client = Axios.create({ baseURL: BASE_URL })
+axios.create({
+  baseURL:
+    process.env.NODE_ENV === 'production'
+      ? process.env.REACT_APP_API_URL
+      : 'http://localhost:5000'
+})
 
 export default Client

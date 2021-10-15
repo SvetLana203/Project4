@@ -18,6 +18,7 @@ if DATABASE_URL:
     app.config['SQLALCHEMY_ECHO'] = False
     app.env = 'production'
 else:
+    app.debug = True
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://localhost:5432/zerowaste"
     app.config['SQLALCHEMY_ECHO'] = True
