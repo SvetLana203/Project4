@@ -4,8 +4,9 @@
     <PostItem :items="items"  />
   </div>
   <div class="item-container">
-  <div v-for="item in items" :key="item.id">
-    <ItemCard :item="item" @click="selectItem"/>
+  <div >
+    <ItemCard v-for="item in items" :key="item.id" :item="item" />
+    
   </div>
 </div>
   </div>
@@ -33,11 +34,7 @@ export default {
       const res = await GetItems();
       this.items = res.reverse();
     },
-    selectItem(item){
-      this.selectedItem = item
-      // this.$route.push(`/listings/${id}`)
-    
-    }
+  
   },
 }
 </script>

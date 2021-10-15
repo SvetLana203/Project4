@@ -1,9 +1,9 @@
 <template>
   <div class="item-card">
-      <img :src="item.image" alt=""/>
+      <img :src="itemDetails.image" alt=""/> 
     <div class="content">
-      <h3>{{item.name}}</h3>
-      <h3>{{item.description}}</h3>
+      <h3>{{itemDetails.name}}</h3>
+      <h3>{{itemDetails.description}}</h3>
     </div>
     <button class="delete" @click="deleteItem">Delete</button>
     <button class="edit" >Edit</button>
@@ -13,23 +13,35 @@
 </template>
 
 <script>
-
-import { DeleteItem } from '../services/ItemServices';
+import {DeleteItem,GetItemById,} from "../services/ItemServices"
 export default {
   name: "ItemCard",
   components: {},
-  props:["item"],
+  // props:["item"],
   data: () => ({
     itemDetails: {}
   }),
   mounted(){
     this.itemDetails = { ...this.item };
+    this.viewDetails()
   },
   methods: {
-    async deleteItem(){
-      const res = await DeleteItem(this.itemDetails.id);
+    
+    async viewDetails(id){
+      const res = await GetItemById(id)
+      console.log (">> params" ,id)
+      console.log(res)
+      this.itemDetails = res
+    },
+    async deleteItem(id){
+      const res = await DeleteItem(id);
       console.log("res :>> ", res)
     },
+    // selectItem(id){
+      
+    // this.$router.push(`${this.$route.params.item_id}`)
+    //   console.log("itemdetails ",id)
+    // },
   }
 }
 </script>

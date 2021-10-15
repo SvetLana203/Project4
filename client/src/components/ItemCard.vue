@@ -5,35 +5,43 @@
       <h3>{{item.name}}</h3>
       <h3>{{item.description}}</h3>
     </div>
-    <!-- <button class="delete" @click="deleteItem">Delete</button> -->
-    <button class="view-details" @click="viewDetails">View Details</button>
+    <!-- <ItemDetails v-for="item in items" :key="item.id" :item="item" @click.native="selectItem(item.id)"/> -->
+    <!-- <div v-for="item in items" :key="item.id" :item="item"></div> -->
+    <button class="view-details" @click="selectItem(item.id)" >View Details</button>
     <button class="add">Add to cart</button>
     
   </div>
 </template>
 
 <script>
-
-// import { DeleteItem } from '../services/ItemServices';
+// import ItemDetails from "./ItemDetails.vue"
 export default {
   name: "ItemCard",
-  components: {},
+  // components: {ItemDetails},
   props:["item"],
-  data: () => ({
-    itemDetails: {}
-  }),
-  mounted(){
-    this.itemDetails = { ...this.item };
-  },
+  // data: () => ({
+  //   itemDetails: {},
+  //   selectedItem: null
+  // }),
+  // mounted(){
+  //    this.itemDetails = { ...this.item }
+  // }),
   methods: {
-    // async deleteItem(){
-    //   const res = await DeleteItem(this.itemDetails.id);
-    //   console.log("res :>> ", res)
-    // },
-    viewDetails(id){
+    // async viewDetails(id){
+    //   this.$router.push(`/listings/${id}`)
+    //   const res = await FindItemById(this.item.id)
+    //   console.log(res)
+    // }
+    // selectItem(id){
       
-      this.$router.push(`/listings/${id}`)
-    }
+    //   this.$router.push(`${this.$route.params.item_id}`)
+    //    console.log("itemcard ",id)
+    // },
+      selectItem(id){
+      console.log(id)
+      this.$router.push(`listings/${id}`)
+    },
+    
   }
 }
 </script>
