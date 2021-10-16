@@ -25,5 +25,5 @@ export const DeleteItem = async id => {
 
 export const UpdateItem = async id => {
   const res = await Client.put(`/items/${id}`)
-  return res
+  return res.data
 }

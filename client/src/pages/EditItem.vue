@@ -40,37 +40,36 @@ export default {
   methods:{
   async getItems(){
       const res = await GetItemById(this.$route.params.item_id)
-      console.log(res)
+      console.log("let's edit",res)
       this.itemEdit = res
   },
     handleItemChange(e){
     this[e.target.name] = e.target.value
     },
     
-    // async updateItem(e) {
-    // e.preventDefault()
-    // const newUpdatedItem = {
-    //   name: this.name,
-    //   image: this.image,
-    //   description: this.description,
-    //   user_id: this.user_id
+    async updateItem(e) {
+    e.preventDefault()
+    const newUpdatedItem = {
+      name: this.name,
+      image: this.image,
+      description: this.description,
+      user_id: this.user_id
       
-    // }
-    // console.log(newUpdatedItem)
-    // const res = await UpdateItem(this.$route.params.item_id)
-    //this.itemEdit = res
-    // console.log("here",res)
-    // this.itemEdit = res
-    //this.$router.push(`/listings/${id}`)
-    // this.$emit("handleItemChange",itemDetails)
-    //}}
-
-
-  async updateItem(){
+    }
+    console.log(newUpdatedItem)
     const res = await UpdateItem(this.$route.params.item_id, this.itemEdit)
-    console.log("updated", res)
+    console.log("here",res)
+    this.newUpdatedItem =  res
     this.$router.push("/listings")
-  }
+    }
+
+
+  // async updateItem(){
+  //   const res = await UpdateItem(this.$route.params.item_id, this.itemEdit)
+  //   console.log("updated", res)
+  //   this.itemEdit = res
+  //   this.$router.push("/listings")
+  // }
   }
 }
 </script>

@@ -30,13 +30,13 @@ export default {
   methods: {
     async viewDetails(id){
       const res = await GetItemById(id)
-      console.log (">> params",id)
-      console.log(res)
+      //console.log ("params",id)
+      console.log("viewing",res)
       this.itemDetails = res
     },
     async deleteItem(){
       const res = await DeleteItem(this.$route.params.item_id);
-      console.log("res >> ", res)
+      console.log("deleted", res)
       this.itemDetails = ""
       //this.$router.push(`/listings/${id}`)
     },
