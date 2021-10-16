@@ -27,15 +27,16 @@ export default {
   name: "EditItem",
   // props:["item"],
   data: ()=> ({
-    itemEdit: {}
-    // name:"",
-    // image:"",
-    // description:"",
-    // updatedItem:{}
+    itemEdit: {},
+    name:"",
+    image:"",
+    description:"",
+    user_id:""
+    //updatedItem:{}
   }),
   mounted() {
   this.getItems()
-  // this.newUpdatedItem()
+  //this.newUpdatedItem()
     },
   methods:{
   async getItems(){
@@ -53,21 +54,22 @@ export default {
       name: this.name,
       image: this.image,
       description: this.description,
-      user_id: this.user_id
+      // user_id: this.user_id
       
     }
     console.log(newUpdatedItem)
-    const res = await UpdateItem(this.$route.params.item_id, this.itemEdit)
+    const res = await UpdateItem(this.$route.params.item_id,newUpdatedItem)
     console.log("here",res)
     this.newUpdatedItem =  res
     this.$router.push("/listings")
     }
 
 
-  // async updateItem(){
+  // async updateItem(e){
+  //   e.preventDefault()
   //   const res = await UpdateItem(this.$route.params.item_id, this.itemEdit)
   //   console.log("updated", res)
-  //   this.itemEdit = res
+  //   this.newUpdatedItem = res
   //   this.$router.push("/listings")
   // }
   }

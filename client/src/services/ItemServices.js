@@ -23,7 +23,7 @@ export const DeleteItem = async id => {
   return res
 }
 
-export const UpdateItem = async id => {
-  const res = await Client.put(`/items/${id}`)
-  return res.data
+export const UpdateItem = async (id, data) => {
+  const res = await Client.put(`/items/${id}`, data)
+  return res
 }

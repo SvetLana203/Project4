@@ -29,7 +29,7 @@ class ItemInfo(Resource):
       for key in data:
         setattr(item, key, data[key]) 
         db.session.commit() 
-      return item.json()
+      return item.json(), 201
 
   def delete(self, item_id):
       item = Item. find_by_id(item_id)
