@@ -28,7 +28,6 @@ export default {
     
   },
   methods: {
-    
     async viewDetails(id){
       const res = await GetItemById(id)
       console.log (">> params",id)

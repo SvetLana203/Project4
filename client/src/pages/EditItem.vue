@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { UpdateItem } from '../services/ItemServices'
+import { UpdateItem, GetItemById } from '../services/ItemServices'
 export default {
   name: "EditItem",
   // props:["item"],
@@ -34,36 +34,45 @@ export default {
     // updatedItem:{}
   }),
   mounted() {
-  this.$emit("getItems")
-  this.newUpdatedItem
+  this.getItems()
+  // this.newUpdatedItem()
     },
   methods:{
+  async getItems(){
+      const res = await GetItemById(this.$route.params.item_id)
+      console.log(res)
+      this.itemEdit = res
+  },
     handleItemChange(e){
     this[e.target.name] = e.target.value
     },
+    
+    // async updateItem(e) {
+    // e.preventDefault()
+    // const newUpdatedItem = {
+    //   name: this.name,
+    //   image: this.image,
+    //   description: this.description,
+    //   user_id: this.user_id
       
-        //this.$emit("getItems")
-    async updateItem(e) {
-    e.preventDefault()
-    const newUpdatedItem = {
-      name: this.name,
-      image: this.image,
-      description: this.description,
-      user_id: 2
-      
-    }
-    console.log(newUpdatedItem)
-    const res = await UpdateItem(this.$route.params.item_id)
+    // }
+    // console.log(newUpdatedItem)
+    // const res = await UpdateItem(this.$route.params.item_id)
     //this.itemEdit = res
-    console.log("here",res)
-    this.itemEdit = res
+    // console.log("here",res)
+    // this.itemEdit = res
     //this.$router.push(`/listings/${id}`)
     // this.$emit("handleItemChange",itemDetails)
-  
-    }}
+    //}}
 
+
+  async updateItem(){
+    const res = await UpdateItem(this.$route.params.item_id, this.itemEdit)
+    console.log("updated", res)
+    this.$router.push("/listings")
   }
-
+  }
+}
 </script>
 
 <style scoped>
