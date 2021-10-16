@@ -4,6 +4,7 @@
     <div class="content">
       <h3>{{item.name}}</h3>
       <h3>{{item.description}}</h3>
+      <h3>posted by {{itemUser}}</h3>
     </div>
     <!-- <ItemDetails v-for="item in items" :key="item.id" :item="item" @click.native="selectItem(item.id)"/> -->
     <!-- <div v-for="item in items" :key="item.id" :item="item"></div> -->
@@ -18,14 +19,15 @@
 export default {
   name: "ItemCard",
   // components: {ItemDetails},
-  props:["item"],
-  // data: () => ({
-  //   itemDetails: {},
-  //   selectedItem: null
-  // }),
-  // mounted(){
-  //    this.itemDetails = { ...this.item }
-  // }),
+  props:["item", "owner"],
+  data: () => ({
+    itemDetails: {},
+    itemUser: ""
+  }),
+  mounted(){
+    this.itemDetails = { ...this.item }
+    this.itemUser = this.owner
+  },
   methods: {
     // async viewDetails(id){
     //   this.$router.push(`/listings/${id}`)

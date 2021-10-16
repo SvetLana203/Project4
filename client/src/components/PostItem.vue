@@ -75,7 +75,7 @@ export default {
         name: this.name,
         image: this.image,
         description: this.description,
-        user_id: 2
+        user_id: localStorage.getItem("user_id")
       }
       await PostNewItem(res)
       this.name = ""

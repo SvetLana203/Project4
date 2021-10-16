@@ -1,22 +1,23 @@
 import Client from './api'
 
-// export const SignIn = async (username, password) => {
-//   const res = await Client.post('/users/login', {
-//     username,
-//     password
-//   })
-//   return res.data
-// }
+export const GetUser = async id => {
+  const res = await Client.get(`/users/${id}`)
+  return res.data
+}
 
 export const CreateUser = async data => {
   const res = await Client.post('/users', data)
   return res
 }
-// export const RegisterUser = async (name, email) => {
-//   const res = await Client.post('/users/register', { name, email })
-//   return res.data
-// }
+export const GetAllUsers = async () => {
+  const res = await Client.get('/users')
+  return res.data
+}
 
+export const VerifyUser = async data => {
+  const res = await Client.post('/users/verify', data)
+  return res
+}
 // export const FindUsername = async username => {
 //   const res = await Client.get(`/users/search?username=${username}`)
 //   return res.data
