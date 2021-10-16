@@ -15,6 +15,7 @@
       <button @click="uploadIm">Upload</button> -->
     <form @submit="createItem" >
     <div class="input_product">
+    <input v-model="image" name="image" placeholder="image"/>
     <textarea v-model="name" name="name"  placeholder="product" @input="handleFormChange"/>
     </div>
     <textarea v-model="description" name="description"  placeholder="description" @input="handleFormChange"/>

@@ -22,7 +22,8 @@ export default {
       if (this.name && this.email){
         const payload = {
           name: this.name,
-          email: this.email
+          email: this.email,
+          user_id: this.user_id
         }
         const res = await CreateUser(payload)
         if(res.status === 201) 
@@ -32,25 +33,14 @@ export default {
         }
       }
     },
-    // async getUser() {
-    //   if (this.verifyEmail) {
-    //     const payload = {
-    //       user_email: this.verifyEmail,
-    //     };
-    //     const res = await VerifyUser(payload);
-    //     if (res.data.msg === "user not found") {
-    //       this.found = false;
-    //     } else {
-    //       this.storeUserData(res.data);
-    //     }
-    //   }
-    // },
+    
     storeUserData(data) {
       localStorage.setItem("name", data.name);
       localStorage.setItem("email", data.email);
       localStorage.setItem("user_id", data.id);
       localStorage.setItem("authenticated", true);
       this.$router.push("/");
+  
   }
   }
 }

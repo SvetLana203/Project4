@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="post-item">
-    <PostItem :items="items"  />
+    <PostItem :items="items"  @addItem="addItem"/>
   </div>
   <div class="item-container">
-  <div >
-    <ItemCard v-for="item in items" :key="item.id" :item="item" />
+  <div v-for="item in items" :key="item.id">
+    <ItemCard :item="item" :owner="item.user.name"/>
     
   </div>
 </div>
@@ -26,7 +26,8 @@ export default {
     items:[],
     selectedItem: null
   }),
-  mounted: function () {
+  mounted() {
+    this.$emit("checkRegistration")
     this.getItems();
   },
   methods: {
@@ -34,7 +35,9 @@ export default {
       const res = await GetItems();
       this.items = res.reverse();
     },
-  
+  addItem(item) {
+    this.items.unshift(item)
+  }
   },
 }
 </script>
