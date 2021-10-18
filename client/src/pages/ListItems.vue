@@ -3,6 +3,7 @@
     <!-- <v-card>
     <PostItem :items="items"  @addItem="addItem"/>
     </v-card> -->
+    <h1 class="text-center">List Products</h1>
     <v-card class="d-flex justify-center flex-wrap mb-6 cyan lighten-5"
     flat
     tile>
