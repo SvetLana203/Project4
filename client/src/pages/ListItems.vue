@@ -2,17 +2,16 @@
   <div>
     <v-card>
     <PostItem :items="items"  @addItem="addItem"/>
-  </v-card>
-  <v-card class="d-flex flex-wrap mb-6"
-  :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-4'"
-  flat
-  tile>
-  <v-card v-for="item in items" :key="item.id" class="pa-2"
-  outlined
-  tile>
+    </v-card>
+    <v-card class="d-flex justify-center flex-wrap mb-6 cyan lighten-5"
+    flat
+    tile>
+    <v-card v-for="item in items" :key="item.id" class="pa-2"
+    outlined
+    tile>
     <ItemCard :item="item" :owner="item.user.name"/>
-  </v-card>
-</v-card>
+    </v-card>
+    </v-card>
   </div>
 </template>
 
