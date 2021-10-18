@@ -3,7 +3,7 @@
     <v-card>
     <PostItem :items="items"  @addItem="addItem"/>
   </v-card>
-  <v-card class="d-flex flex-row mb-6"
+  <v-card class="d-flex flex-wrap mb-6"
   :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-4'"
   flat
   tile>
