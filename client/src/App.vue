@@ -1,11 +1,6 @@
 <template>
   <v-app>
     <Nav/>
-    <v-app-bar>
-   
-      <v-spacer></v-spacer>
-        <v-icon></v-icon>
-    </v-app-bar>
     <v-main>
     <router-view></router-view>
     </v-main>
