@@ -4,7 +4,7 @@
     <v-card-text class="text--primary">
       <h3>{{item.name}}</h3>
       <h3>{{item.description}}</h3>
-      <h3>posted by {{itemUser}}</h3>
+      <h3>owner {{itemUser}}</h3>
     </v-card-text>
     <!-- <ItemDetails v-for="item in items" :key="item.id" :item="item" @click.native="selectItem(item.id)"/> -->
     <!-- <div v-for="item in items" :key="item.id" :item="item"></div> -->
