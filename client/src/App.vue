@@ -1,7 +1,8 @@
 <template>
   <v-app>
-    <v-app-bar>
     <Nav/>
+    <v-app-bar>
+   
       <v-spacer></v-spacer>
         <v-icon></v-icon>
     </v-app-bar>

@@ -3,7 +3,6 @@
   <h2>ZeroWaste</h2>
 </v-card>
 </template>
-
 <script>
 
 
