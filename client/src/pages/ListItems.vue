@@ -1,17 +1,18 @@
 <template>
   <div>
     <v-card>
-    <div class="post-item">
     <PostItem :items="items"  @addItem="addItem"/>
-    
-  </div>
   </v-card>
-  <div class="item-container">
-  <div v-for="item in items" :key="item.id">
+  <v-card class="d-flex flex-row mb-6"
+  :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-4'"
+  flat
+  tile>
+  <v-card v-for="item in items" :key="item.id" class="pa-2"
+  outlined
+  tile>
     <ItemCard :item="item" :owner="item.user.name"/>
-    
-  </div>
-</div>
+  </v-card>
+</v-card>
   </div>
 </template>
 

@@ -11,8 +11,8 @@
       
     <v-img class="white--text align-end" height="200px" :src="itemEdit.image" alt=""/>
     <v-text-field v-model="itemEdit.image"  label="image" prepend-icon="mdi-image"/>
-    <v-text-field v-model="itemEdit.name"  label="product" />
-    <v-text-field v-model="itemEdit.description"  label="description" />
+    <v-text-field v-model="itemEdit.name"  label="product" prepend-icon="mdi-edit"/>
+    <v-text-field v-model="itemEdit.description"  label="description" prepend-icon="mdi-edit"/>
     <v-card-actions>
     <v-btn color="orange" text @click="updateItem">Edit</v-btn>
     </v-card-actions>
