@@ -30,10 +30,20 @@ A Trello board was used to keep track of development progress and can be viewed 
 
 
 ## Screenshots
-
+![](images/ZeroWaste.png)
+![](images/list.png)
+![](images/profile.png)
 
 ## Future Updates
 
+- [] Implement Oauth with Auth0
+- [] Create cart component
+- [] Ability to add item into a cart
+- [] More styling
+
 
 ## Credits
-
+* Unit 4 GA
+* Hallogram project
+* Neil Italia
+* Tyler Jones
