@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-    <v-card width="400" class="mx-auto mt-5">
+  <v-app class="cyan lighten-5">
+    <v-card  width="400" class="mx-auto mt-5">
       <v-card-title>
       <h1>Welcome</h1>
       </v-card-title>

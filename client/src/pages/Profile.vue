@@ -1,17 +1,13 @@
 <template>
-  <div class="profile">
-    <h3 class="profile-title">Profile</h3>
-    <div class="profile-details">
+  <v-card class="cyan lighten-5">
+      <h3>Profile</h3>
       <h4>User Name: {{ user.name }}</h4>
       <h4>Email: {{ user.email }}</h4>
-    </div>
-    <h3 class="profile-title">Products</h3>
-    <div class="post-container">
-      <div v-for="item in user.items" :key="item.id">
+      <h3 class="profile-title">Products</h3>
+    <v-card v-for="item in user.items" :key="item.id">
         <ItemCard :item="item" :owner="user.name" />
-      </div>
-    </div>
-  </div>
+    </v-card>
+  </v-card>
 </template>
 
 <script>
