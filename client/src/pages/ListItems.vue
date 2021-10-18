@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-card>
+    <!-- <v-card>
     <PostItem :items="items"  @addItem="addItem"/>
-    </v-card>
+    </v-card> -->
     <v-card class="d-flex justify-center flex-wrap mb-6 cyan lighten-5"
     flat
     tile>
@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import PostItem from "../components/PostItem.vue"
+//import PostItem from "../components/PostItem.vue"
 import ItemCard from "../components/ItemCard.vue"
 import {GetItems} from "../services/ItemServices"
 export default {
   name: "ListItems",
   components: {
-    PostItem,
+    //PostItem,
     ItemCard
   },
   data: () => ({
