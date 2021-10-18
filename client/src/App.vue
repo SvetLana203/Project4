@@ -1,32 +1,28 @@
 <template>
-  <div id="app">
-    <header>
-      <Nav />
-    </header>
-    <main>
-      <router-view/>
-    </main>
-  </div>
+  <v-app>
+    <v-app-bar>
+    <Nav/>
+      <v-spacer></v-spacer>
+        <v-icon></v-icon>
+    </v-app-bar>
+    <v-main>
+    <router-view></router-view>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import Nav from "./components/Nav.vue"
 
+import Nav from "./components/Nav.vue"
 export default {
   name: 'App',
-  components: {
-   Nav
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+  Nav
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>

@@ -1,7 +1,9 @@
 <template>
-  <div class="new-item">
+  <v-card>
+    <v-card width="400" class="mx-auto mt-5">
+      <v-card-title>
     <h2>Post your product</h2>
-    
+      </v-card-title>
       <!-- <p>Preview here:</p>
     <template v-if="previewImage" >
     <img :src="previewImage" alt=""/>
@@ -13,15 +15,18 @@
       @change="previewIm"
       />
       <button @click="uploadIm">Upload</button> -->
-    <form @submit="createItem" >
-    <div class="input_product">
-    <input v-model="image" name="image" placeholder="image"/>
-    <textarea v-model="name" name="name"  placeholder="product" @input="handleFormChange"/>
-    </div>
-    <textarea v-model="description" name="description"  placeholder="description" @input="handleFormChange"/>
-    <button>Submit</button>
-    </form>
-  </div>
+    <v-card-text>
+    <v-form  >
+      <v-text-field  v-model="image" label="image" prepend-icon="mdi-image"/>
+      <v-text-field v-model="name" label="product" prepend-icon="mdi-title"/>
+      <v-text-field v-model="description" label="description" prepend-icon="mdi-edit"/>
+    <v-card-actions>
+    <v-btn color="success" @click="createItem">Submit</v-btn>
+    </v-card-actions>
+    </v-form>
+    </v-card-text>
+    </v-card>
+  </v-card>
 </template>
 
 <script>
@@ -66,9 +71,9 @@ export default {
     //   console.log(res)
     //   this.image = this.itemImage.name
     // },  
-    handleFormChange(e) {
-      this[e.target.name] = e.target.value
-    },
+    // handleFormChange(e) {
+      // /this[e.target.name] = e.target.value
+    // },
     
     async createItem(e){
       e.preventDefault()
@@ -76,6 +81,7 @@ export default {
         name: this.name,
         image: this.image,
         description: this.description,
+
         user_id: localStorage.getItem("user_id")
       }
       await PostNewItem(res)
@@ -88,10 +94,15 @@ export default {
 </script>
 
 <style scoped>
-.new-post {
+.input-product {
   display: flex;
   flex-direction: column;
-  justify-content: space-between
+  justify-content: space-between;
+  
 }
+/* .btn-postitem{
+  background-color: purple;
+  color:blue;
+} */
 
 </style>

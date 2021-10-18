@@ -1,8 +1,11 @@
 <template>
   <div>
+    <v-card>
     <div class="post-item">
     <PostItem :items="items"  @addItem="addItem"/>
+    
   </div>
+  </v-card>
   <div class="item-container">
   <div v-for="item in items" :key="item.id">
     <ItemCard :item="item" :owner="item.user.name"/>

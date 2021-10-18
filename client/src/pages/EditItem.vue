@@ -1,24 +1,26 @@
 <template>
-  <div class="edit-item">
-  <form  class="edit-item">
+  <v-card class="mx-auto" max-width="400">
+    <v-card-text>
+  <v-form  class="edit-item">
       <!-- <input
       type="file"
       placeholder="product image"
       accept="image/*"
       @input="handleItemChange"
       /> -->
-      <div>
-    <img :src="itemEdit.image" alt=""/>
-    <div class="input_product">
-    <textarea v-model="itemEdit.name" name="name"  placeholder="product" @input="handleItemChange"/>
-    </div>
-    <textarea v-model="itemEdit.description" name="description"  placeholder="description" @input="handleItemChange"/>
-    </div>
-    <button @click="updateItem">Edit</button>
-  </form> 
-      <div>
-    </div>
-  </div>
+      
+    <v-img class="white--text align-end" height="200px" :src="itemEdit.image" alt=""/>
+    <v-text-field v-model="itemEdit.image"  label="image" prepend-icon="mdi-image"/>
+    <v-text-field v-model="itemEdit.name"  label="product" />
+    <v-text-field v-model="itemEdit.description"  label="description" />
+    <v-card-actions>
+    <v-btn color="orange" text @click="updateItem">Edit</v-btn>
+    </v-card-actions>
+  </v-form> 
+  </v-card-text>
+      
+    
+  </v-card>
 </template>
 
 <script>
@@ -27,11 +29,9 @@ export default {
   name: "EditItem",
   // props:["item"],
   data: ()=> ({
-    itemEdit: {},
-    name:"",
-    image:"",
-    description:"",
-    user_id:""
+    itemEdit: {name:"",image:"",
+    description:""}
+    // user_id:""
     //updatedItem:{}
   }),
   mounted() {
@@ -44,22 +44,22 @@ export default {
       console.log("let's edit",res)
       this.itemEdit = res
   },
-    handleItemChange(e){
-    this[e.target.name] = e.target.value
-    },
+    // handleItemChange(e){
+    // this[e.target.name] = e.target.value
+    // },
     
     async updateItem(e) {
     e.preventDefault()
     const newUpdatedItem = {
-      name: this.name,
-      image: this.image,
-      description: this.description,
+      image: this.itemEdit.image,
+      name: this.itemEdit.name,
+      description: this.itemEdit.description,
       // user_id: this.user_id
       
     }
     console.log(newUpdatedItem)
     const res = await UpdateItem(this.$route.params.item_id,newUpdatedItem)
-    console.log("here",res)
+    console.log("updated",res)
     this.newUpdatedItem =  res
     this.$router.push("/listings")
     }

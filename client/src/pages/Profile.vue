@@ -8,7 +8,7 @@
     <h3 class="profile-title">Products</h3>
     <div class="post-container">
       <div v-for="item in user.items" :key="item.id">
-        <ItemCard :item="items" :owner="user.name" />
+        <ItemCard :item="item" :owner="user.name" />
       </div>
     </div>
   </div>

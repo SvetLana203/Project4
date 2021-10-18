@@ -1,14 +1,14 @@
 <template>
-  <div class="item-card">
-      <img :src="itemDetails.image" alt=""/> 
-    <div class="content">
+  <v-card class="mx-auto" max-width="400">
+      <v-img :src="itemDetails.image" alt=""/> 
+    <v-card-text>
       <h3>{{itemDetails.name}}</h3>
       <h3>{{itemDetails.description}}</h3>
-    </div>
-    <button class="delete" @click="deleteItem">Delete</button>
-    <router-link class="edit" :to="`/edit/${itemDetails.id}`">Edit</router-link>
-    <button class="add">Add to cart</button>
-  </div>
+    </v-card-text>
+    <v-btn color="blue" text @click="deleteItem">Delete</v-btn>
+    <router-link  :to="`/edit/${itemDetails.id}`">EDIT</router-link>
+    <v-btn color="blue" text>Add to cart</v-btn>
+  </v-card>
 </template>
 
 <script>
@@ -38,7 +38,7 @@ export default {
       const res = await DeleteItem(this.$route.params.item_id);
       console.log("deleted", res)
       this.itemDetails = ""
-      //this.$router.push(`/listings/${id}`)
+      this.$router.push("/listings")
     },
     // handleItemChange(e){
     //   this[e.target.name] = e.target.value

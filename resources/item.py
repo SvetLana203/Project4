@@ -25,6 +25,7 @@ class ItemInfo(Resource):
 
   def put(self, item_id):
       data = request.get_json()
+      print(data)
       item = Item.find_by_id(item_id)
       for key in data:
         setattr(item, key, data[key]) 

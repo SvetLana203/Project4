@@ -1,17 +1,17 @@
 <template>
-  <div class="item-card">
-      <img :src="item.image" alt=""/>
-    <div class="content">
+  <v-card class="mx-auto" max-width="400">
+      <v-img class="white--text align-end" height="200px" :src="item.image" alt=""/>
+    <v-card-text class="text--primary">
       <h3>{{item.name}}</h3>
       <h3>{{item.description}}</h3>
       <h3>posted by {{itemUser}}</h3>
-    </div>
+    </v-card-text>
     <!-- <ItemDetails v-for="item in items" :key="item.id" :item="item" @click.native="selectItem(item.id)"/> -->
     <!-- <div v-for="item in items" :key="item.id" :item="item"></div> -->
-    <button class="view-details" @click="selectItem(item.id)" >View Details</button>
-    <button class="add">Add to cart</button>
+    <v-btn color="orange" text @click="selectItem(item.id)" >View Details</v-btn>
+    <v-btn color="orange" text>Add to cart</v-btn>
     
-  </div>
+  </v-card>
 </template>
 
 <script>
