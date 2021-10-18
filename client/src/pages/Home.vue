@@ -4,7 +4,7 @@
   <h2>ZeroWaste</h2>
 </v-card>
 <div class="font-weight-black text-center pa-5">
-  <h3>Give your stuff the second life. Sell or donate it. Do not waste it</h3> </div>
+  <h3>Give your stuff the second life. Sell or donate it. Do not waste it.</h3> </div>
 </v-app>
 </template>
 <script>
