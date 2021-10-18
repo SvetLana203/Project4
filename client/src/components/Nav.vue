@@ -1,28 +1,23 @@
 <template>
-<!-- <nav> -->
-<!-- <v-app-bar  app>
-  <v-app-bar-nav-icon class="grey--text" @click="drawer = !drawer"></v-app-bar-nav-icon>
-<v-toolbar-title class="text-uppercase grey-text">
+<div>
+  <v-app-bar-nav-icon class="grey--text"></v-app-bar-nav-icon>
+<v-toolbar-title class="grey-text">
   <span class="font-weight-light">ZeroWaste</span>
 </v-toolbar-title>
-</v-app-bar> -->
-
-<v-navigation-drawer  clipped
-        
-        width=240 absolute permanent>
-  <v-list
-            flat dense nav class="py-1"
-        >
-        <v-list-item-group color='primary' mandatory>
-  <v-toolbar-title><router-link  to="/">Home</router-link></v-toolbar-title>
-  <v-toolbar-title><router-link  to="/listings">Listings</router-link></v-toolbar-title>
-  <v-toolbar-title><router-link  to="/register">Register</router-link></v-toolbar-title>
-  <v-toolbar-title><router-link  to="/profile" v-if="authenticated">{{ name }}'s Profile</router-link></v-toolbar-title>
+<nav>
+<v-navigation-drawer permanent>
+  <v-list >
+  <v-list-item-group color='primary'>
+  <router-link  class="text-decoration-none" to="/">Home</router-link>
+  <router-link  class="text-decoration-none" to="/listings">Listings</router-link>
+  <router-link  class="text-decoration-none" to="/register">Register</router-link>
+  <router-link class="text-decoration-none" to="/profile" v-if="authenticated">{{ name }}'s Profile</router-link>
   <v-btn v-if="authenticated" @click="signOut">Sign Out</v-btn>
   </v-list-item-group>
   </v-list>
 </v-navigation-drawer>
-<!-- </nav> -->
+</nav>
+</div>
 </template>
 
 <script>

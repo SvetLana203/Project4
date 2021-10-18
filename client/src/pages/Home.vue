@@ -1,7 +1,7 @@
 <template>
-<div class="home">
+<v-card>
   <h2>ZeroWaste</h2>
-</div>
+</v-card>
 </template>
 
 <script>
