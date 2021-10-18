@@ -38,9 +38,9 @@ export default {
       const res = await GetItems();
       this.items = res.reverse();
     },
-  addItem(item) {
-    this.items.unshift(item)
-  }
+  // addItem(item) {
+  //   this.items.unshift(item)
+  // }
   },
 }
 </script>
