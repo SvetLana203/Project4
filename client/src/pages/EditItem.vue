@@ -1,4 +1,5 @@
 <template>
+<div class="cyan lighten-5">
   <v-card class="mx-auto" max-width="400">
     <v-card-text>
   <v-form  class="edit-item">
@@ -18,9 +19,8 @@
     </v-card-actions>
   </v-form> 
   </v-card-text>
-      
-    
   </v-card>
+</div>
 </template>
 
 <script>
